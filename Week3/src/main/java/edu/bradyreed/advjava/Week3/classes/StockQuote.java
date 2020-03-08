@@ -35,7 +35,7 @@ public class StockQuote {
 
 		StockQuote m_quote = this;
 		
-		if (this.tickerSymbol.equals(p_symbol))
+		if (this.tickerSymbol.equalsIgnoreCase(p_symbol))
 			return m_quote;
 		
 		else m_quote = new StockQuote();
