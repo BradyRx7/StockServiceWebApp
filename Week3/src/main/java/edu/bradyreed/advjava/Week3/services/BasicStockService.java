@@ -6,16 +6,20 @@ import edu.bradyreed.advjava.Week3.interfaces.IStockService;
 public class BasicStockService implements IStockService {
 
 	@Override
-	public StockQuote getQuote() {
-		// TODO Auto-generated method stub
-		return null;
+	public StockQuote getQuote(String symbol) {
+		String demoTickerSymbol = "UMLMA";
+		double demoValue = 22.58;
+		
+		StockQuote demoSQ;
+		demoSQ = new StockQuote(demoValue, demoTickerSymbol);
+		
+		return demoSQ;
 	}
 
-	@Override
-	public void StockQuote(String tickerSymbol) {
-		// TODO Auto-generated method stub
+	//Hard-coded stock service to return a StockQuote instance.
+	//Normally this would be a connection to a StockQuote service.
+	public BasicStockService() {
+		
 		
 	}
-	
-		
 }
