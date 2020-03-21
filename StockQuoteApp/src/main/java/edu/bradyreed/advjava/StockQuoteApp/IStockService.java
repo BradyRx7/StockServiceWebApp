@@ -1,4 +1,4 @@
-package edu.bradyreed.advjava.Week3;
+package edu.bradyreed.advjava.StockQuoteApp;
 
 // Implemented by BasicStockService.java
 

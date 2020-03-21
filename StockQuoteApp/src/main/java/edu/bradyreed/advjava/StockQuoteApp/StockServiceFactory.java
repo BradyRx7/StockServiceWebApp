@@ -1,7 +1,7 @@
-package edu.bradyreed.advjava.Week3;
+package edu.bradyreed.advjava.StockQuoteApp;
 
-import edu.bradyreed.advjava.Week3.BasicStockService;
-import edu.bradyreed.advjava.Week3.IStockService;
+import edu.bradyreed.advjava.StockQuoteApp.BasicStockService;
+import edu.bradyreed.advjava.StockQuoteApp.IStockService;
 
 /**
  * Returns a basic stock service instance

@@ -1,9 +1,13 @@
-package edu.bradyreed.advjava.Week3;
+package edu.bradyreed.advjava.StockQuoteApp;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+
+import edu.bradyreed.advjava.StockQuoteApp.BasicStockService;
+import edu.bradyreed.advjava.StockQuoteApp.IStockService;
+import edu.bradyreed.advjava.StockQuoteApp.StockServiceFactory;
 
 /**
  * Unit test StockServiceFactory.java

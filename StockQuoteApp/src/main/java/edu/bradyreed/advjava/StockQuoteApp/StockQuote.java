@@ -1,4 +1,4 @@
-package edu.bradyreed.advjava.Week3;
+package edu.bradyreed.advjava.StockQuoteApp;
 
 public final class StockQuote {
 	private final double value;
