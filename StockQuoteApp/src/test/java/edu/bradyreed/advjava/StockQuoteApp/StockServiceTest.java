@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import edu.bradyreed.advjava.StockQuoteApp.BasicStockService;
-import edu.bradyreed.advjava.StockQuoteApp.IStockService;
+import edu.bradyreed.advjava.StockQuoteApp.StockService;
 import edu.bradyreed.advjava.StockQuoteApp.StockServiceFactory;
 
 /**
@@ -19,11 +19,11 @@ public class StockServiceTest
     public void stockServiceTest() 
     {
     	
-        IStockService sampleStockService = StockServiceFactory.getStockService();
+        StockService sampleStockService = StockServiceFactory.getStockService();
         
         double testStockValue = sampleStockService.getQuote("UML").getValue();
         
         assertTrue("getStockService returned a BasicStockService", sampleStockService instanceof BasicStockService);
-        assertEquals("Check ticker price", testStockValue, 22.58, 0.01);
+        assertEquals("Check ticker price", testStockValue, 22.56, 0.01);
     }
 }
