@@ -24,7 +24,7 @@ public class BasicStockService implements StockService {
 	}
 
 	@Override
-	public List<StockQuote> getQuote(String symbol, Date from, Date until) {
+	public List<StockQuote> getQuote(String symbol, Date from, Date until, IntervalEnum interval) {
 		
 		//**TEMPORARY NOTE** moved implementation to notepad++ file in scraps folder to try to redo a more elegant implementation	
 		List<StockQuote> quoteList = new LinkedList<StockQuote>();
@@ -33,8 +33,9 @@ public class BasicStockService implements StockService {
 		start.setTime(from);
 		Calendar end = Calendar.getInstance();
 		end.setTime(until);
+		int dateInterval = interval.iterator();
 
-		for (Date loopDate = start.getTime(); start.before(end); start.add(Calendar.DATE, 1), loopDate = start.getTime()) {
+		for (Date loopDate = start.getTime(); start.before(end); start.add(Calendar.DATE, dateInterval), loopDate = start.getTime()) {
 		
 		//The stock value is hard coded and will be replaced with a call a real stock database later	
 		StockQuote historicalQuote = new StockQuote(22.50, symbol, loopDate);

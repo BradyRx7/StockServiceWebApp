@@ -86,7 +86,7 @@ public class BasicStockServiceTest {
 		Date from = dateFormat.parse("03/20/2020");
 		Date until = dateFormat.parse("03/27/2020");
 		
-		List<StockQuote> testQuoteRange = stockService.getQuote("UML", from, until);
+		List<StockQuote> testQuoteRange = stockService.getQuote("UML", from, until, IntervalEnum.DAILY);
 		assertEquals("Testing range of quotes failed - retrieval of 6th day, 3/25/2020 failed",
 				 testQuoteRange.get(5).getQuoteDate(), dateFormat.parse("03/25/2020"));
 	}
