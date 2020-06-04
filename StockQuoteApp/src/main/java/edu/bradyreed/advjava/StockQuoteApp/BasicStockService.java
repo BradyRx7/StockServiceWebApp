@@ -3,6 +3,9 @@ package edu.bradyreed.advjava.StockQuoteApp;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+
+import javax.validation.constraints.NotNull;
+
 import java.util.LinkedList;
 
 
@@ -17,14 +20,14 @@ public class BasicStockService implements StockService {
 	
 	protected BasicStockService() {}
 	
-	public StockQuote getQuote(String symbol) {
+	public StockQuote getQuote(@NotNull String symbol) {
 		
 		//Temporary hard coded variables, can be swapped with a service later
 		return new StockQuote(22.56, symbol, new Date());
 	}
 
 	@Override
-	public List<StockQuote> getQuote(String symbol, Date from, Date until, IntervalEnum interval) {
+	public List<StockQuote> getQuote(@NotNull String symbol, @NotNull Date from, Date until, IntervalEnum interval) {
 		
 		//**TEMPORARY NOTE** moved implementation to notepad++ file in scraps folder to try to redo a more elegant implementation	
 		List<StockQuote> quoteList = new LinkedList<StockQuote>();
