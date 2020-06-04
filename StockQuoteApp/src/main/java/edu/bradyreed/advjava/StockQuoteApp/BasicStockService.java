@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import java.util.LinkedList;
 
 
-//Test committ
+//Test commit
 public class BasicStockService implements StockService {
 	//Hard-coded stock service to return a StockQuote instance.
 	//Normally this would be a connection to a StockQuote service.
