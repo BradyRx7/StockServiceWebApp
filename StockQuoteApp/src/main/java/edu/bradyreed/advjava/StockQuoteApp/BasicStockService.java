@@ -9,7 +9,6 @@ import javax.validation.constraints.NotNull;
 import java.util.LinkedList;
 
 
-//Test commit
 public class BasicStockService implements StockService {
 	//Hard-coded stock service to return a StockQuote instance.
 	//Normally this would be a connection to a StockQuote service.
@@ -27,7 +26,7 @@ public class BasicStockService implements StockService {
 	}
 
 	@Override
-	public List<StockQuote> getQuote(@NotNull String symbol, @NotNull Date from, Date until, IntervalEnum interval) {
+	public List<StockQuote> getQuote(@NotNull String symbol, @NotNull Date from, @NotNull Date until, IntervalEnum interval) {
 		
 		//**TEMPORARY NOTE** moved implementation to notepad++ file in scraps folder to try to redo a more elegant implementation	
 		List<StockQuote> quoteList = new LinkedList<StockQuote>();

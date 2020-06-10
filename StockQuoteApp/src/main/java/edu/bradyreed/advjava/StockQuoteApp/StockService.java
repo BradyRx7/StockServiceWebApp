@@ -18,6 +18,6 @@ public interface StockService {
 	//@param from, beginning date in range
 	//@param until, ending date in range
 	//@return, List of stock quote instances, one per day
-	List<StockQuote> getQuote(@NotNull String symbol, Date from, Date until, IntervalEnum interval);
+	List<StockQuote> getQuote(@NotNull String symbol, @NotNull Date from, @NotNull Date until, IntervalEnum interval);
 	
 }
