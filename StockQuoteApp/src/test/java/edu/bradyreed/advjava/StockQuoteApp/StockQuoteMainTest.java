@@ -55,21 +55,53 @@ public class StockQuoteMainTest {
 		String input = "UML\n";
 	    InputStream in = new ByteArrayInputStream(input.getBytes());
 	    System.setIn(in);
-		
-		StockQuoteMain.main(new String[] {});
+	    
+	    StockQuoteMain.main(new String[] {});
 		
 	    assertTrue(StockQuoteMain.runSuccess);
 	}
 	
 	@Test
-	public void testMainDateRangeStockLookup() {
-		String input = "UML" + " 03/21/2020" + " 03/29/2020\n";
+	public void testMainWeeklyDateRangeStockLookup() {
+		String input = "UML" + " 03/11/2020" + " 03/29/2020" + " WEEKLY";
 	    InputStream in = new ByteArrayInputStream(input.getBytes());
 	    System.setIn(in);
 	    
-		StockQuoteMain.main(new String[] {});
+	    StockQuoteMain.main(new String[] {});
 		
 	    assertTrue(StockQuoteMain.runSuccess);
 	}
 
+	@Test
+	public void testMainQuarterlyDateRangeStockLookup() {
+		String input = "UML" + " 03/11/2020" + " 03/29/2021" + " QUARTERLY";
+	    InputStream in = new ByteArrayInputStream(input.getBytes());
+	    System.setIn(in);
+	    
+	    StockQuoteMain.main(new String[] {});
+		
+	    assertTrue(StockQuoteMain.runSuccess);
+	}
+	
+	@Test
+	public void testMainYearlyDateRangeStockLookup() {
+		String input = "UML" + " 03/11/2008" + " 03/29/2020" + " YEARLY";
+	    InputStream in = new ByteArrayInputStream(input.getBytes());
+	    System.setIn(in);
+	    
+	    StockQuoteMain.main(new String[] {});
+		
+	    assertTrue(StockQuoteMain.runSuccess);
+	}
+	
+	@Test
+	public void testMainDailyDateRangeStockLookup() {
+		String input = "UML" + " 03/11/2020" + " 03/29/2020" + " DAILY";
+	    InputStream in = new ByteArrayInputStream(input.getBytes());
+	    System.setIn(in);
+	    
+	    StockQuoteMain.main(new String[] {});
+		
+	    assertTrue(StockQuoteMain.runSuccess);
+	}
 }

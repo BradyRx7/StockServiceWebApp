@@ -5,12 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>edu.bradyreed.advjava</groupId>
-  <artifactId>Week3</artifactId>
+  <artifactId>StockQuoteApp</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
   <name>StockQuoteApp</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>StockQuoteApp.bradyreed.advjava.edu</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
