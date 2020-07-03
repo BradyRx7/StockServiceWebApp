@@ -6,7 +6,7 @@ import java.util.Date;
 import org.apache.http.annotation.Immutable;
 
 /**
- * @author brady
+ * @author Brady
  *
  */
 
@@ -55,7 +55,7 @@ public final class StockQuote {
 	
 	@Override
 	public String toString() {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy 'at' ha z");
 		return this.tickerSymbol + " " + String.format("%.2f", this.value) + " " + dateFormat.format(this.quoteDate);
 	}
 	/*

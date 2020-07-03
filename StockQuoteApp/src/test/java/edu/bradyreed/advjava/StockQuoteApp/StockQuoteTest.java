@@ -108,7 +108,7 @@ public class StockQuoteTest {
 	 */
 	@Test
 	public void testToString() {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy 'at' ha z");
 		String expectedString = testQuote.getTickerSymbol() + " " + String.format("%.2f", testQuote.getValue()) + 
 				" " + dateFormat.format(testQuote.getQuoteDate());
 		
