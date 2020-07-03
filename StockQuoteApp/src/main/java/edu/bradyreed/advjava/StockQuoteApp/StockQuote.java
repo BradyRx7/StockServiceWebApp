@@ -3,6 +3,14 @@ package edu.bradyreed.advjava.StockQuoteApp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.http.annotation.Immutable;
+
+/**
+ * @author brady
+ *
+ */
+
+@Immutable
 public final class StockQuote {
 	private final double value;
 	private final String tickerSymbol;
