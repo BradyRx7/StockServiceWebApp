@@ -25,8 +25,7 @@ public class StockQuoteTest {
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-	}
-	StockQuote testQuote = new StockQuote();
+	}	
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -40,7 +39,7 @@ public class StockQuoteTest {
 	@Before
 	public void setUp() throws Exception {
 	}
-
+		StockQuote testQuote = new StockQuote();
 	/**
 	 * @throws java.lang.Exception
 	 */
