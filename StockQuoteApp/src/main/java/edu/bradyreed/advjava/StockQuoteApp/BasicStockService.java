@@ -35,12 +35,14 @@ public class BasicStockService implements StockService {
 		start.setTime(from);
 		Calendar end = Calendar.getInstance();
 		end.setTime(until);
-		int dateInterval = interval.iterator();
+		
+		//Specify number of quotes per day in the date range using enum.
+		int dailyQuotes = interval.iterator();
 
-		for (Date loopDate = start.getTime(); start.before(end); start.add(Calendar.DATE, dateInterval), loopDate = start.getTime()) {
+		for (Date loopTime = start.getTime(); start.before(end); start.add(Calendar.HOUR_OF_DAY, dailyQuotes), loopTime = start.getTime()) {
 		
 		//The stock value is hard coded and will be replaced with a call a real stock database later	
-		StockQuote historicalQuote = new StockQuote(22.50, symbol, loopDate);
+		StockQuote historicalQuote = new StockQuote(22.50, symbol, loopTime);
 		  
 		quoteList.add(historicalQuote);
 		} 

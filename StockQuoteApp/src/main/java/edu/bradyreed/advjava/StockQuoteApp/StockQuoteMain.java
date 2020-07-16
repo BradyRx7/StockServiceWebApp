@@ -15,7 +15,7 @@ public class StockQuoteMain {
 		
 		//use system to take either a single argument of stock symbol, or 3 with a symbol and 2 dates
 		System.out.print("Enter a stock symbol OR stock symbol, date range, and interval \n (e.g." 
-				+ "APPL OR APPL 10/13/2008 10/22/2008 QUARTERLY) " + ": ");
+				+ "APPL OR APPL 10/13/2008 10/22/2008 HOURLY) " + ": ");
 		
 		Scanner scanner = new Scanner(System.in);
 		String commandArgs = scanner.nextLine();
