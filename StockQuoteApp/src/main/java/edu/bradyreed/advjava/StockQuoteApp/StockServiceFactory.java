@@ -1,6 +1,6 @@
 package edu.bradyreed.advjava.StockQuoteApp;
 
-import edu.bradyreed.advjava.StockQuoteApp.BasicStockService;
+import edu.bradyreed.advjava.StockQuoteApp.DatabaseStockService;
 import edu.bradyreed.advjava.StockQuoteApp.StockService;
 
 /**
@@ -10,6 +10,6 @@ import edu.bradyreed.advjava.StockQuoteApp.StockService;
 public class StockServiceFactory {
 	
 	public static StockService getStockService() {
-		return new BasicStockService();
+		return new DatabaseStockService();
 	}
 }

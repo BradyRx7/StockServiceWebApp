@@ -2,13 +2,13 @@ package edu.bradyreed.advjava.StockQuoteApp;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Date;
 
 /**
  * An implementation of the StockService interface that gets
@@ -39,12 +39,12 @@ public class DatabaseStockService implements StockService {
             stockQuotes = new ArrayList<>(resultSet.getFetchSize());
             while(resultSet.next()) {
                 String symbolValue = resultSet.getString("symbol");
-                Date time = resultSet.getDate("time");
+                java.sql.Date time = resultSet.getDate("time");
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(time);
                 // oops!
                 double price = resultSet.getDouble("price");
-                stockQuotes.add(new StockQuote(price, symbolValue, calendar));
+                stockQuotes.add(new StockQuote(price, symbolValue, calendar.getTime()));
             }
 
         } catch (DatabaseConnectionException | SQLException exception) {
@@ -66,8 +66,10 @@ public class DatabaseStockService implements StockService {
      * @return a list of StockQuote instances
      * @throws   StockServiceException if using the service generates an exception.
      */
-    @Override
-    public List<StockQuote> getQuote(String symbol, Calendar start, Calendar end, String interval) {
-        return null;
-    }
+
+	@Override
+	public List<StockQuote> getQuote(String symbol, Date from, Date until, IntervalEnum interval) throws StockServiceException {
+		
+		return null;
+	}
 }
