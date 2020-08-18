@@ -25,8 +25,7 @@ public class StockQuoteTest {
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-	}
-	StockQuote testQuote = new StockQuote();
+	}	
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -40,7 +39,7 @@ public class StockQuoteTest {
 	@Before
 	public void setUp() throws Exception {
 	}
-
+		StockQuote testQuote = new StockQuote();
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -108,7 +107,7 @@ public class StockQuoteTest {
 	 */
 	@Test
 	public void testToString() {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy 'at' ha z");
 		String expectedString = testQuote.getTickerSymbol() + " " + String.format("%.2f", testQuote.getValue()) + 
 				" " + dateFormat.format(testQuote.getQuoteDate());
 		
