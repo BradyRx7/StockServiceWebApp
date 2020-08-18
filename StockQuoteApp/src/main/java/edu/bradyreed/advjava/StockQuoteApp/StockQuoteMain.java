@@ -5,6 +5,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+
+import edu.bradyreed.advjava.StockQuoteApp.service.StockService;
+import edu.bradyreed.advjava.StockQuoteApp.service.StockServiceFactory;
+import edu.bradyreed.advjava.StockQuoteApp.util.IntervalEnum;
+
 import java.util.LinkedList;
 
 public class StockQuoteMain {

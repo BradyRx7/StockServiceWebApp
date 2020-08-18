@@ -1,4 +1,4 @@
-package edu.bradyreed.advjava.StockQuoteApp;
+package edu.bradyreed.advjava.StockQuoteApp.service;
 
 /**
  * Used to signal a problem with the StockService.

@@ -1,4 +1,4 @@
-package edu.bradyreed.advjava.StockQuoteApp;
+package edu.bradyreed.advjava.StockQuoteApp.util;
 
 import java.util.Properties;
 

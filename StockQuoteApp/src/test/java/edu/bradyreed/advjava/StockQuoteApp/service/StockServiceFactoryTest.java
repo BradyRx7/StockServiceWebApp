@@ -1,7 +1,7 @@
 /**
  * 
  */
-package edu.bradyreed.advjava.StockQuoteApp;
+package edu.bradyreed.advjava.StockQuoteApp.service;
 
 import static org.junit.Assert.*;
 
@@ -10,6 +10,9 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import edu.bradyreed.advjava.StockQuoteApp.service.BasicStockService;
+import edu.bradyreed.advjava.StockQuoteApp.service.StockService;
 
 /**
  * @author brady
@@ -46,7 +49,7 @@ public class StockServiceFactoryTest {
 	}
 
 	/**
-	 * Test method for {@link edu.bradyreed.advjava.StockQuoteApp.StockServiceFactory#getStockService()}.
+	 * Test method for {@link edu.bradyreed.advjava.StockQuoteApp.service.StockServiceFactory#getStockService()}.
 	 */
 	@Test
 	public void testGetStockService() {

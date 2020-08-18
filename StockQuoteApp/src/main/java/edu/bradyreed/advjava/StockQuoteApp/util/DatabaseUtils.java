@@ -1,4 +1,4 @@
-package edu.bradyreed.advjava.StockQuoteApp;
+package edu.bradyreed.advjava.StockQuoteApp.util;
 
 import com.ibatis.common.jdbc.ScriptRunner;
 

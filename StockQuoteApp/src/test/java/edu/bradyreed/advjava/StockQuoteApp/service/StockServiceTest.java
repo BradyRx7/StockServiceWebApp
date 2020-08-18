@@ -1,13 +1,13 @@
-package edu.bradyreed.advjava.StockQuoteApp;
+package edu.bradyreed.advjava.StockQuoteApp.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import edu.bradyreed.advjava.StockQuoteApp.BasicStockService;
-import edu.bradyreed.advjava.StockQuoteApp.StockService;
-import edu.bradyreed.advjava.StockQuoteApp.StockServiceFactory;
+import edu.bradyreed.advjava.StockQuoteApp.service.BasicStockService;
+import edu.bradyreed.advjava.StockQuoteApp.service.StockService;
+import edu.bradyreed.advjava.StockQuoteApp.service.StockServiceFactory;
 
 /**
  * Unit test StockServiceFactory.java

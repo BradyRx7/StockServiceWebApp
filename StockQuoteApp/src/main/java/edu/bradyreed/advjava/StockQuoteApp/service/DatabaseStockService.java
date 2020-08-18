@@ -1,4 +1,4 @@
-package edu.bradyreed.advjava.StockQuoteApp;
+package edu.bradyreed.advjava.StockQuoteApp.service;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -8,6 +8,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
+import edu.bradyreed.advjava.StockQuoteApp.StockQuote;
+import edu.bradyreed.advjava.StockQuoteApp.util.DatabaseConnectionException;
+import edu.bradyreed.advjava.StockQuoteApp.util.DatabaseUtils;
+import edu.bradyreed.advjava.StockQuoteApp.util.IntervalEnum;
+
 import java.util.Date;
 
 /**

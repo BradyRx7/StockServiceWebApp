@@ -1,8 +1,11 @@
-package edu.bradyreed.advjava.StockQuoteApp;
+package edu.bradyreed.advjava.StockQuoteApp.service;
 
 import java.util.List;
-import edu.bradyreed.advjava.StockQuoteApp.IntervalEnum;
+
 import javax.validation.constraints.NotNull;
+
+import edu.bradyreed.advjava.StockQuoteApp.StockQuote;
+import edu.bradyreed.advjava.StockQuoteApp.util.IntervalEnum;
 
 import java.util.Date;
 

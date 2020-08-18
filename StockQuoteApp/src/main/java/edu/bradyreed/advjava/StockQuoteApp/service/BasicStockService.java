@@ -1,10 +1,13 @@
-package edu.bradyreed.advjava.StockQuoteApp;
+package edu.bradyreed.advjava.StockQuoteApp.service;
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import javax.validation.constraints.NotNull;
+
+import edu.bradyreed.advjava.StockQuoteApp.StockQuote;
+import edu.bradyreed.advjava.StockQuoteApp.util.IntervalEnum;
 
 import java.util.LinkedList;
 

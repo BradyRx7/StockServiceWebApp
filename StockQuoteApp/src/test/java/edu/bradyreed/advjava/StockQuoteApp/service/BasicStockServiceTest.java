@@ -1,7 +1,7 @@
 /**
  * 
  */
-package edu.bradyreed.advjava.StockQuoteApp;
+package edu.bradyreed.advjava.StockQuoteApp.service;
 
 import static org.junit.Assert.*;
 
@@ -10,6 +10,12 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import edu.bradyreed.advjava.StockQuoteApp.StockQuote;
+import edu.bradyreed.advjava.StockQuoteApp.service.BasicStockService;
+import edu.bradyreed.advjava.StockQuoteApp.service.StockService;
+import edu.bradyreed.advjava.StockQuoteApp.service.StockServiceFactory;
+import edu.bradyreed.advjava.StockQuoteApp.util.IntervalEnum;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -54,7 +60,7 @@ public class BasicStockServiceTest {
 
 	/**
 	 * Test method for
-	 * {@link edu.bradyreed.advjava.StockQuoteApp.BasicStockService#BasicStockService()}.
+	 * {@link edu.bradyreed.advjava.StockQuoteApp.service.BasicStockService#BasicStockService()}.
 	 */
 	@Test
 	public void testBasicStockService() {
@@ -65,7 +71,7 @@ public class BasicStockServiceTest {
 
 	/**
 	 * Test method for
-	 * {@link edu.bradyreed.advjava.StockQuoteApp.BasicStockService#getQuote(java.lang.String)}.
+	 * {@link edu.bradyreed.advjava.StockQuoteApp.service.BasicStockService#getQuote(java.lang.String)}.
 	 */
 	@Test
 	public void testGetQuoteString() {
@@ -78,7 +84,7 @@ public class BasicStockServiceTest {
 
 	/**
 	 * Test method for
-	 * {@link edu.bradyreed.advjava.StockQuoteApp.BasicStockService#getQuote(java.lang.String, java.util.Date, java.util.Date, edu.bradyreed.advjava.StockQuoteApp.IntervalEnum)}.
+	 * {@link edu.bradyreed.advjava.StockQuoteApp.service.BasicStockService#getQuote(java.lang.String, java.util.Date, java.util.Date, edu.bradyreed.advjava.StockQuoteApp.util.IntervalEnum)}.
 	 * 
 	 * @throws ParseException
 	 */
@@ -100,7 +106,7 @@ public class BasicStockServiceTest {
 
 	/**
 	 * Test method for
-	 * {@link edu.bradyreed.advjava.StockQuoteApp.BasicStockService#getQuote(java.lang.String, java.util.Date, java.util.Date, edu.bradyreed.advjava.StockQuoteApp.IntervalEnum)}.
+	 * {@link edu.bradyreed.advjava.StockQuoteApp.service.BasicStockService#getQuote(java.lang.String, java.util.Date, java.util.Date, edu.bradyreed.advjava.StockQuoteApp.util.IntervalEnum)}.
 	 * 
 	 * @throws ParseException
 	 */
@@ -122,7 +128,7 @@ public class BasicStockServiceTest {
 
 	/**
 	 * Test method for
-	 * {@link edu.bradyreed.advjava.StockQuoteApp.BasicStockService#getQuote(java.lang.String, java.util.Date, java.util.Date, edu.bradyreed.advjava.StockQuoteApp.IntervalEnum)}.
+	 * {@link edu.bradyreed.advjava.StockQuoteApp.service.BasicStockService#getQuote(java.lang.String, java.util.Date, java.util.Date, edu.bradyreed.advjava.StockQuoteApp.util.IntervalEnum)}.
 	 * 
 	 * @throws ParseException
 	 */
