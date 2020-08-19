@@ -4,7 +4,7 @@ import edu.bradyreed.advjava.StockQuoteApp.service.DatabaseStockService;
 import edu.bradyreed.advjava.StockQuoteApp.service.StockService;
 
 /**
- * Returns a basic stock service instance
+ * Returns a stock service instance
  */
 
 public class StockServiceFactory {

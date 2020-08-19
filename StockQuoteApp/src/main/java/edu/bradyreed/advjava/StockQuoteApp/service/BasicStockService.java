@@ -38,9 +38,9 @@ public class BasicStockService implements StockService {
 		start.setTime(from);
 		Calendar end = Calendar.getInstance();
 		end.setTime(until);
-		int dateInterval = interval.iterator();
+		int hourInterval = interval.iterator();
 
-		for (Date loopDate = start.getTime(); start.before(end); start.add(Calendar.DATE, dateInterval), loopDate = start.getTime()) {
+		for (Date loopDate = start.getTime(); start.before(end); start.add(Calendar.HOUR, hourInterval), loopDate = start.getTime()) {
 		
 		//The stock value is hard coded and will be replaced with a call a real stock database later	
 		StockQuote historicalQuote = new StockQuote(22.50, symbol, loopDate);

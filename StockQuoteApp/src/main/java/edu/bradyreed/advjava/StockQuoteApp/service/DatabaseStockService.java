@@ -1,6 +1,5 @@
 package edu.bradyreed.advjava.StockQuoteApp.service;
 
-import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,14 +9,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Date;
 
 import edu.bradyreed.advjava.StockQuoteApp.StockDateFormat;
 import edu.bradyreed.advjava.StockQuoteApp.StockQuote;
 import edu.bradyreed.advjava.StockQuoteApp.util.DatabaseConnectionException;
 import edu.bradyreed.advjava.StockQuoteApp.util.DatabaseUtils;
 import edu.bradyreed.advjava.StockQuoteApp.util.IntervalEnum;
-
-import java.util.Date;
 
 /**
  * An implementation of the StockService interface that gets
@@ -90,23 +88,36 @@ public class DatabaseStockService implements StockService {
             /*String queryString = "select * from quotes where symbol = '" + symbol + "'"
                     + "and time BETWEEN '" + fromString + "' and '" + untilString + "'";*/
             
-            String sqlStringIntervalFilter = "SELECT * FROM quotes WHERE symbol = '"
+            String sqlStringFilter = "SELECT * FROM quotes WHERE symbol = '"
             		+ symbol + "'" + "and time BETWEEN '" + fromString + "' and '" 
-            		+ untilString + "' DATEPART(hour, time) >= '" + interval + "'"
-            				+ "ORDER BY time";
+            		+ untilString + "'";
             
-            ResultSet dbResultSet = slqStatement.executeQuery(sqlStringIntervalFilter);
+            //Possibly have SQL filter with interval as well (incomplete):
+            // DATEPART(HH, time) >= '" + interval + "'" + "ORDER BY time";
+            
+            ResultSet dbResultSet = slqStatement.executeQuery(sqlStringFilter);
             stockQuotes = new ArrayList<>();
             
             java.util.Date dbStockDate = new Date();
+            StockQuote previousQuote = null;
+            
             while (dbResultSet.next()) {
             	String dbStockSymbol =  dbResultSet.getString("symbol");
             	Timestamp stockTimeStamp = dbResultSet.getTimestamp("time");
                 dbStockDate.setTime(stockTimeStamp.getTime());
                 double dbStockPrice = dbResultSet.getDouble("price");
+                StockQuote workingQuote = new StockQuote(dbStockPrice, dbStockSymbol, dbStockDate);
                 
+                if (previousQuote == null) {
+                   stockQuotes.add(workingQuote);
+                } else if (intervalCheck(workingQuote.getQuoteDate(), interval,
+                        previousQuote.getQuoteDate())) {
+
+                    stockQuotes.add(workingQuote);
+                }
+
+                previousQuote = workingQuote;
                 stockQuotes.add(new StockQuote(dbStockPrice, dbStockSymbol, dbStockDate));
-                
             }
 		 
 		} catch (DatabaseConnectionException | SQLException exception) {
@@ -114,7 +125,23 @@ public class DatabaseStockService implements StockService {
 		}   
 		if (stockQuotes.isEmpty()) {
             throw new StockServiceException("There is no stock data for:" + symbol);
-            
-        return stockQuotes;
+		}    
+        
+		return stockQuotes;
+		
 	}
+	
+	
+	/**
+	 * Interval check method. Checks if two dates are intervals of each other
+	 */
+	
+	private boolean intervalCheck(java.util.Date startDate, IntervalEnum interval, java.util.Date endDate) {
+		Calendar startPlusInterval = Calendar.getInstance();
+        startPlusInterval.setTime(startDate);
+        startPlusInterval.add(Calendar.HOUR, interval.iterator());
+        return endDate.after(startPlusInterval.getTime());
+	}
+	
+	
 }
