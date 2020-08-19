@@ -5,10 +5,13 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import edu.bradyreed.advjava.StockQuoteApp.StockDateFormat;
 import edu.bradyreed.advjava.StockQuoteApp.StockQuote;
 import edu.bradyreed.advjava.StockQuoteApp.util.DatabaseConnectionException;
 import edu.bradyreed.advjava.StockQuoteApp.util.DatabaseUtils;
@@ -75,7 +78,43 @@ public class DatabaseStockService implements StockService {
 
 	@Override
 	public List<StockQuote> getQuote(String symbol, Date from, Date until, IntervalEnum interval) throws StockServiceException {
-		
-		return null;
+		List<StockQuote> stockQuotes = null;
+		try {
+            Connection dbConnection = DatabaseUtils.getConnection();
+            Statement slqStatement = dbConnection.createStatement();
+            SimpleDateFormat stockDateFormat = StockDateFormat.getDateFormat();
+
+            String fromString = stockDateFormat.format(from.getTime());
+            String untilString = stockDateFormat.format(until.getTime());
+
+            /*String queryString = "select * from quotes where symbol = '" + symbol + "'"
+                    + "and time BETWEEN '" + fromString + "' and '" + untilString + "'";*/
+            
+            String sqlStringIntervalFilter = "SELECT * FROM quotes WHERE symbol = '"
+            		+ symbol + "'" + "and time BETWEEN '" + fromString + "' and '" 
+            		+ untilString + "' DATEPART(hour, time) >= '" + interval + "'"
+            				+ "ORDER BY time";
+            
+            ResultSet dbResultSet = slqStatement.executeQuery(sqlStringIntervalFilter);
+            stockQuotes = new ArrayList<>();
+            
+            java.util.Date dbStockDate = new Date();
+            while (dbResultSet.next()) {
+            	String dbStockSymbol =  dbResultSet.getString("symbol");
+            	Timestamp stockTimeStamp = dbResultSet.getTimestamp("time");
+                dbStockDate.setTime(stockTimeStamp.getTime());
+                double dbStockPrice = dbResultSet.getDouble("price");
+                
+                stockQuotes.add(new StockQuote(dbStockPrice, dbStockSymbol, dbStockDate));
+                
+            }
+		 
+		} catch (DatabaseConnectionException | SQLException exception) {
+                throw new StockServiceException(exception.getMessage(), exception);
+		}   
+		if (stockQuotes.isEmpty()) {
+            throw new StockServiceException("There is no stock data for:" + symbol);
+            
+        return stockQuotes;
 	}
 }

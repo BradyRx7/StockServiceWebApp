@@ -24,7 +24,7 @@ public final class StockQuote {
 	}
 	
 	//Overloaded constructor for value, symbol, and date input
-	protected StockQuote (double p_value, String p_tickerSymbol, Date p_Date) {
+	public StockQuote (double p_value, String p_tickerSymbol, Date p_Date) {
 		this.value = p_value;
 		this.tickerSymbol = p_tickerSymbol;
 		this.quoteDate = p_Date;
