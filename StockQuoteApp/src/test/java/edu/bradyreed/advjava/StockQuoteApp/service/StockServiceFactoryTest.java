@@ -26,7 +26,7 @@ public class StockServiceFactoryTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
-		StockService testStockService = new BasicStockService();
+		StockService testStockService = StockServiceFactory.getStockService();
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -53,7 +53,7 @@ public class StockServiceFactoryTest {
 	 */
 	@Test
 	public void testGetStockService() {
-		assertTrue(testStockService instanceof BasicStockService);
+		assertTrue(testStockService instanceof DatabaseStockService);
 	}
 
 }
