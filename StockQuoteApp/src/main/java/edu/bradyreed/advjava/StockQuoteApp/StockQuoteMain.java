@@ -5,6 +5,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+
+import edu.bradyreed.advjava.StockQuoteApp.service.StockService;
+import edu.bradyreed.advjava.StockQuoteApp.service.StockServiceException;
+import edu.bradyreed.advjava.StockQuoteApp.service.StockServiceFactory;
+import edu.bradyreed.advjava.StockQuoteApp.util.IntervalEnum;
+
 import java.util.LinkedList;
 
 public class StockQuoteMain {
@@ -26,7 +32,7 @@ public class StockQuoteMain {
 		
 		String[] vars = commandArgs.split(" ");
         String stockSymbol= vars[0];
-        StockService fakeStockService = StockServiceFactory.getStockService();
+        StockService realStockService = StockServiceFactory.getStockService();
         List<StockQuote> quotes = new LinkedList<StockQuote>();
         
         if (vars.length > 1) {
@@ -61,10 +67,18 @@ public class StockQuoteMain {
     			e.printStackTrace();
     		}
     		     	
-        	quotes = fakeStockService.getQuote(stockSymbol, fromDate, untilDate, interval);
+        	try {
+				quotes = realStockService.getQuote(stockSymbol, fromDate, untilDate, interval);
+			} catch (StockServiceException e) {
+				e.printStackTrace();
+			}
         	
         }else {
-        	quotes.add(fakeStockService.getQuote(stockSymbol));
+        	try {
+				quotes.add(realStockService.getQuote(stockSymbol));
+			} catch (StockServiceException e) {
+				e.printStackTrace();
+			}
         }
 		
         System.out.println("\n Based on your input, the service found " + quotes.size() 

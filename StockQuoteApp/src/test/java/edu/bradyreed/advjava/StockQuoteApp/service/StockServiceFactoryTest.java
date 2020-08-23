@@ -1,7 +1,7 @@
 /**
  * 
  */
-package edu.bradyreed.advjava.StockQuoteApp;
+package edu.bradyreed.advjava.StockQuoteApp.service;
 
 import static org.junit.Assert.*;
 
@@ -10,6 +10,9 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import edu.bradyreed.advjava.StockQuoteApp.service.BasicStockService;
+import edu.bradyreed.advjava.StockQuoteApp.service.StockService;
 
 /**
  * @author brady
@@ -23,7 +26,7 @@ public class StockServiceFactoryTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
-		StockService testStockService = new BasicStockService();
+		StockService testStockService = StockServiceFactory.getStockService();
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -46,11 +49,11 @@ public class StockServiceFactoryTest {
 	}
 
 	/**
-	 * Test method for {@link edu.bradyreed.advjava.StockQuoteApp.StockServiceFactory#getStockService()}.
+	 * Test method for {@link edu.bradyreed.advjava.StockQuoteApp.service.StockServiceFactory#getStockService()}.
 	 */
 	@Test
 	public void testGetStockService() {
-		assertTrue(testStockService instanceof BasicStockService);
+		assertTrue(testStockService instanceof DatabaseStockService);
 	}
 
 }
