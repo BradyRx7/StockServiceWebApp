@@ -100,11 +100,13 @@ public class DatabaseStockService implements StockService {
             
             java.util.Date dbStockDate = new Date();
             StockQuote previousQuote = null;
+            Calendar calendar = Calendar.getInstance();
             
             while (dbResultSet.next()) {
             	String dbStockSymbol =  dbResultSet.getString("symbol");
             	Timestamp stockTimeStamp = dbResultSet.getTimestamp("time");
-                dbStockDate.setTime(stockTimeStamp.getTime());
+            	calendar.setTimeInMillis(stockTimeStamp.getTime());
+                dbStockDate = calendar.getTime();
                 double dbStockPrice = dbResultSet.getDouble("price");
                 StockQuote workingQuote = new StockQuote(dbStockPrice, dbStockSymbol, dbStockDate);
                 
@@ -117,7 +119,6 @@ public class DatabaseStockService implements StockService {
                 }
 
                 previousQuote = workingQuote;
-                stockQuotes.add(new StockQuote(dbStockPrice, dbStockSymbol, dbStockDate));
             }
 		 
 		} catch (DatabaseConnectionException | SQLException exception) {
@@ -136,10 +137,10 @@ public class DatabaseStockService implements StockService {
 	 * Interval check method. Checks if two dates are intervals of each other
 	 */
 	
-	private boolean intervalCheck(java.util.Date startDate, IntervalEnum interval, java.util.Date endDate) {
+	private boolean intervalCheck(java.util.Date endDate, IntervalEnum interval, java.util.Date startDate) {
 		Calendar startPlusInterval = Calendar.getInstance();
         startPlusInterval.setTime(startDate);
-        startPlusInterval.add(Calendar.HOUR, interval.iterator());
+        startPlusInterval.add(Calendar.MINUTE, interval.iterator() - 1);
         return endDate.after(startPlusInterval.getTime());
 	}
 	

@@ -5,7 +5,7 @@ CREATE TABLE quotes(
    id INT NOT NULL AUTO_INCREMENT,
    symbol VARCHAR(4) NOT NULL,
    time DATETIME NOT NULL,
-   price DECIMAL NOT NULL,
+   price DECIMAL(10,2) NOT NULL,
    PRIMARY KEY ( id )
 );
 

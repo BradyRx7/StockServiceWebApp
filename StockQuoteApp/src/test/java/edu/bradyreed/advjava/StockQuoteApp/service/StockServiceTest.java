@@ -21,9 +21,14 @@ public class StockServiceTest
     	
         StockService sampleStockService = StockServiceFactory.getStockService();
         
-        double testStockValue = sampleStockService.getQuote("UML").getValue();
+        double testStockValue = 100.001;
+		try {
+			testStockValue = sampleStockService.getQuote("UML").getValue();
+		} catch (StockServiceException e) {
+			e.printStackTrace();
+		}
         
-        assertTrue("getStockService returned a BasicStockService", sampleStockService instanceof BasicStockService);
-        assertEquals("Check ticker price", testStockValue, 22.56, 0.01);
+        assertTrue("getStockService returned a DatabaseStockService", sampleStockService instanceof DatabaseStockService);
+        assertEquals("Check ticker price", 128.15, testStockValue, 0.01);
     }
 }

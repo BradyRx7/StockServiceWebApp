@@ -1,22 +1,22 @@
 package edu.bradyreed.advjava.StockQuoteApp.util;
 
 public enum IntervalEnum { 
-	DAILY(24),
-	HALF_DAY(12),
-	HOURLY(1);
+	DAILY(1440),
+	HALF_DAY(770),
+	HOURLY(60);
 	
 	/**
      * Create a new  Interval enumeration.
-     * @param hours the number of hours in the interval
+     * @param minutes the number of hours in the interval
      */
-	private final int hours;
+	private final int minutes;
 
-	    IntervalEnum(int hours) {
-	        this.hours = hours;
+	    IntervalEnum(int minutes) {
+	        this.minutes = minutes;
 	    }
 	    
 	    public int iterator() {
-	        return this.hours;
+	        return this.minutes;
 	    }
 }
 
