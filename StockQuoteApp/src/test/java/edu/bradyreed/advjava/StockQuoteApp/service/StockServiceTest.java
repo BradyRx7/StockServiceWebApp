@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import edu.bradyreed.advjava.StockQuoteApp.service.BasicStockService;
 import edu.bradyreed.advjava.StockQuoteApp.service.StockService;
-import edu.bradyreed.advjava.StockQuoteApp.service.StockServiceFactory;
+import edu.bradyreed.advjava.StockQuoteApp.service.UserAndStockServiceFactory;
 
 /**
  * Unit test StockServiceFactory.java
@@ -19,7 +19,7 @@ public class StockServiceTest
     public void stockServiceTest() 
     {
     	
-        StockService sampleStockService = StockServiceFactory.getStockService();
+        StockService sampleStockService = UserAndStockServiceFactory.getStockService();
         
         double testStockValue = 100.001;
 		try {

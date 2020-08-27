@@ -31,7 +31,7 @@ public class DatabaseStockServiceTest {
 	@Before
 	public void setUp() throws Exception {
 		DatabaseUtils.initializeDatabase(DatabaseUtils.initializationFile);
-		stockService = StockServiceFactory.getStockService();
+		stockService = UserAndStockServiceFactory.getStockService();
 	}
 
 	@After
@@ -41,7 +41,7 @@ public class DatabaseStockServiceTest {
 	@Test
 	public void testGetQuoteString() throws StockServiceException {
 		StockService stockService = null;
-		stockService = StockServiceFactory.getStockService();
+		stockService = UserAndStockServiceFactory.getStockService();
 		StockQuote testQuote = stockService.getQuote("APPL");
 		assertEquals("Tested stock service did not return \"APPL\" and thus may have not retrieved quote correctly",
 				testQuote.getTickerSymbol(), "APPL");
@@ -51,7 +51,7 @@ public class DatabaseStockServiceTest {
 	public void testGetQuoteWithinRangeNoInterval() throws Exception {
 		 
 		StockService stockService = null; 
-		stockService = StockServiceFactory.getStockService(); 
+		stockService = UserAndStockServiceFactory.getStockService(); 
 		SimpleDateFormat dateFormat = StockDateFormat.getDateFormat();
 		java.util.Date from = dateFormat.parse("2020-03-15 00:00:01 EDT");
 		java.util.Date until = dateFormat.parse("2020-03-20 00:00:01 EDT");
@@ -69,7 +69,7 @@ public class DatabaseStockServiceTest {
 	@Test
 	public void testGetQuoteWithRangeAndInterval() throws Exception {
 		StockService stockService = null; 
-		stockService = StockServiceFactory.getStockService(); 
+		stockService = UserAndStockServiceFactory.getStockService(); 
 		SimpleDateFormat dateFormat = StockDateFormat.getDateFormat();
 		java.util.Date from = dateFormat.parse("2020-04-10 00:00:00 EDT");
 		java.util.Date until = dateFormat.parse("2020-04-10 03:00:02 EDT");

@@ -26,7 +26,7 @@ public class StockServiceFactoryTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
-		StockService testStockService = StockServiceFactory.getStockService();
+		StockService testStockService = UserAndStockServiceFactory.getStockService();
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -49,7 +49,7 @@ public class StockServiceFactoryTest {
 	}
 
 	/**
-	 * Test method for {@link edu.bradyreed.advjava.StockQuoteApp.service.StockServiceFactory#getStockService()}.
+	 * Test method for {@link edu.bradyreed.advjava.StockQuoteApp.service.UserAndStockServiceFactory#getStockService()}.
 	 */
 	@Test
 	public void testGetStockService() {

@@ -4,12 +4,20 @@ import edu.bradyreed.advjava.StockQuoteApp.service.DatabaseStockService;
 import edu.bradyreed.advjava.StockQuoteApp.service.StockService;
 
 /**
- * Returns a stock service instance
+ * Returns a Database stock service instance or a Database
+ *  User Service 
  */
 
-public class StockServiceFactory {
+public class UserAndStockServiceFactory {
+	
+	private UserAndStockServiceFactory() {};
+	
 	
 	public static StockService getStockService() {
 		return new DatabaseStockService();
+	}
+	
+	public static UserStockService getUserStockService() {
+		return new DatabaseUserService();
 	}
 }

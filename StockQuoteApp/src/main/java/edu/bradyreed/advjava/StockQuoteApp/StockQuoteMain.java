@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 import edu.bradyreed.advjava.StockQuoteApp.service.StockService;
 import edu.bradyreed.advjava.StockQuoteApp.service.StockServiceException;
-import edu.bradyreed.advjava.StockQuoteApp.service.StockServiceFactory;
+import edu.bradyreed.advjava.StockQuoteApp.service.UserAndStockServiceFactory;
 import edu.bradyreed.advjava.StockQuoteApp.util.IntervalEnum;
 
 import java.util.LinkedList;
@@ -32,7 +32,7 @@ public class StockQuoteMain {
 		
 		String[] vars = commandArgs.split(" ");
         String stockSymbol= vars[0];
-        StockService realStockService = StockServiceFactory.getStockService();
+        StockService realStockService = UserAndStockServiceFactory.getStockService();
         List<StockQuote> quotes = new LinkedList<StockQuote>();
         
         if (vars.length > 1) {

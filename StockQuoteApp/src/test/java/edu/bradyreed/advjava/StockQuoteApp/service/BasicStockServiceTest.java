@@ -14,7 +14,7 @@ import org.junit.Test;
 import edu.bradyreed.advjava.StockQuoteApp.StockQuote;
 import edu.bradyreed.advjava.StockQuoteApp.service.BasicStockService;
 import edu.bradyreed.advjava.StockQuoteApp.service.StockService;
-import edu.bradyreed.advjava.StockQuoteApp.service.StockServiceFactory;
+import edu.bradyreed.advjava.StockQuoteApp.service.UserAndStockServiceFactory;
 import edu.bradyreed.advjava.StockQuoteApp.util.IntervalEnum;
 
 import java.text.ParseException;
