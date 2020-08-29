@@ -15,7 +15,7 @@ import java.sql.SQLException;
  */
 public class DatabaseUtils {
 	
-	public static final String initializationFile = "./src/main/sql/stocks_db_initialization.sql";
+	public static final String initializationFile = "./src/main/sql/db_initialization.sql";
 	
     // in a real program these values would be a configurable property and not hard coded.
     // JDBC driver name and database URL

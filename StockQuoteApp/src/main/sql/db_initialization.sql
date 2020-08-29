@@ -1,13 +1,42 @@
-/** create the stocks database */
-
+/* delete tables if they exist already - ensuring a clean db*/
+DROP TABLE IF EXISTS user_stocks CASCADE;
 DROP TABLE IF EXISTS quotes CASCADE;
-CREATE TABLE quotes(
+DROP TABLE IF EXISTS activities.person CASCADE;
+
+/** creates a table to store a list of people */
+CREATE TABLE person
+(
+  ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  first_name VARCHAR(256) NOT NULL,
+  last_name VARCHAR(256) NOT NULL,
+  birth_date DATETIME NOT NULL
+);
+
+/** create the stocks database */
+CREATE TABLE quotes
+(
    id INT NOT NULL AUTO_INCREMENT,
    symbol VARCHAR(4) NOT NULL,
    time DATETIME NOT NULL,
    price DECIMAL(10,2) NOT NULL,
    PRIMARY KEY ( id )
 );
+
+/** A list of people and the stocks they want to track */
+CREATE TABLE user_stocks
+(
+  ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  person_id INT NOT NULL,
+  hobbie_id INT NOT NULL,
+  FOREIGN KEY (person_id) REFERENCES person (ID),
+  FOREIGN KEY (quotes_id) REFERENCES quotes (ID)
+);
+
+INSERT INTO person (first_name,last_name,birth_date) VALUES ('Drew', 'Hope', '1999/10/10');
+INSERT INTO person (first_name,last_name,birth_date) VALUES ('Lang', 'Heckman', '1959/11/11');
+INSERT INTO person (first_name,last_name,birth_date) VALUES ('Lucy', 'Jones', '2010/1/1');
+INSERT INTO person (first_name,last_name,birth_date) VALUES ('Stew', 'Hammer', '1990/3/28');
+INSERT INTO person (first_name,last_name,birth_date) VALUES ('Dan', 'Lane', '1986/4/18');
 
 INSERT INTO quotes (symbol,time,price) VALUES ('GOOG','2004-08-19 00:00:01','85.00');
 INSERT INTO quotes (symbol,time,price) VALUES ('GOOG','2015-02-03 00:00:01','527.35');
@@ -32,3 +61,11 @@ INSERT INTO quotes (symbol,time,price) VALUES ('UML','2020-06-13 00:00:01','167.
 INSERT INTO quotes (symbol,time,price) VALUES ('UML','2020-06-13 12:00:01','164.29');
 INSERT INTO quotes (symbol,time,price) VALUES ('UML','2020-06-14 00:00:01','161.12');
 INSERT INTO quotes (symbol,time,price) VALUES ('UML','2020-06-14 12:00:01','158.29');
+
+INSERT INTO user_stocks (ID, person_id, quotes_id) VALUES (1, 1, 2);
+INSERT INTO user_stocks (ID, person_id, quotes_id) VALUES (2, 1, 4);
+INSERT INTO user_stocks (ID, person_id, quotes_id) VALUES (3, 2, 2);
+INSERT INTO user_stocks (ID, person_id, quotes_id) VALUES (4, 3, 3);
+INSERT INTO user_stocks (ID, person_id, quotes_id) VALUES (5, 3, 4);
+INSERT INTO user_stocks (ID, person_id, quotes_id) VALUES (6, 3, 5);
+INSERT INTO user_stocks (ID, person_id, quotes_id) VALUES (7, 4, 4);

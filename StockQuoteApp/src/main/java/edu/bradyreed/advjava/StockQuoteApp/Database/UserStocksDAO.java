@@ -1,5 +1,15 @@
 package edu.bradyreed.advjava.StockQuoteApp.Database;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import edu.bradyreed.advjava.StockQuoteApp.Person;
+import edu.bradyreed.advjava.StockQuoteApp.StockQuote;
+
 /**
  * ORM model for UserStocks database table using JPA
  * UserStocks Database holds a list of stocks a person is interested in following
@@ -10,15 +20,6 @@ package edu.bradyreed.advjava.StockQuoteApp.Database;
  */
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-import edu.bradyreed.advjava.StockQuoteApp.Person;
-import edu.bradyreed.advjava.StockQuoteApp.StockQuote;
 
 @Entity
 @Table(name = "UserStocks")
